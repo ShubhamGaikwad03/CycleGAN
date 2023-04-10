@@ -1,3 +1,6 @@
+# Unpaired Image-to-Image Translation using Cycle-Consistent Adversarial Networks
+
+CONVERT IMAGES FROM ONE TYPE TO ANOTHER. 
 
 In this paper, we present a system that can learn to do the same: capturing special characteristics of one image collection
 and figuring out how these characteristics could be translated into the other image collection, all in the absence of any paired
@@ -41,3 +44,20 @@ and a cycle consistency loss to prevent the learned mappings G and F from contra
 **Super-resolution**, on the other hand, is a technique that involves generating a high-resolution image from a low-resolution input image. This task is achieved by using deep learning models that can learn the mapping between low-resolution and high-resolution images. Super-resolution has various applications in fields such as medical imaging, surveillance, and image editing.
 
 Discriminator network is a part of a computer program that is designed to tell whether a picture is "real" (i.e., it was taken by a camera or drawn by a human) or "fake.
+
+Generating a GAN generator involves training a neural network to create new data samples that are similar to a given dataset by using a feedback loop with a discriminator that tries to distinguish between the generated data and the real data. 
+
+GAN generators are used for generating new data samples that are similar to a given dataset and can be used for a wide range of applications, including data augmentation, image and video synthesis, style transfer, anomaly detection, and data privacy.
+
+### Comparison against baseline
+
+This section compares the proposed method, CycleGAN, against different baselines for image-to-image translation. The baselines include CoGAN, Pixel loss + GAN, and Feature loss + GAN. The authors show that the baselines fail to produce compelling results, while CycleGAN is able to produce translations that are often of similar quality to the fully supervised pix2pix.
+
+### Applications
+
+The proposed method, CycleGAN, is demonstrated on several applications where paired training data does not exist.
+* Object transfiguration: The model is trained to translate one object class from Imagenet to another. This application focuses on object transfiguration between visually similar categories, as opposed to within the same category as proposed by Turmukhambetov et al.
+* Season transfer: The model is trained on winter and summer photos of Yosemite on Flickr.
+Collection style transfer: The model is trained on landscape photographs downloaded from Flickr and WikiArt, and learns to mimic the style of an entire set of artworks rather than a single piece of art as in neural style transfer.
+* Photo generation from paintings: An additional loss is introduced to encourage the mapping to preserve color composition between the input and output. This identity mapping loss helps to prevent the generator from changing the tint of input images unnecessarily.
+* Photo enhancement: The model is trained on flower photos downloaded from Flickr to generate photos with shallower depth of field from photos taken by smartphones, which usually have a deep depth of field due to a small aperture.
